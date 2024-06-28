@@ -1,6 +1,8 @@
 import React from 'react';
-import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, TextField, Button } from '@mui/material';
+import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, TextField, Button, IconButton } from '@mui/material';
 import Sidebar from '@/components/sidebar';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const cookOrders = [
   { no: 1, invoiceNumber: 'INV001', dishName: '寿司', status: '未調理', orderDate: '2024-06-20' },
@@ -34,6 +36,7 @@ export default function CookList() {
                 <TableCell sx={{ color: 'white', fontWeight: 'bold', textAlign: 'center' }}>料理名</TableCell>
                 <TableCell sx={{ color: 'white', fontWeight: 'bold', textAlign: 'center' }}>状態</TableCell>
                 <TableCell sx={{ color: 'white', fontWeight: 'bold', textAlign: 'center' }}>注文日</TableCell>
+                <TableCell sx={{ color: 'white', fontWeight: 'bold', textAlign: 'center' }}>操作</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -44,6 +47,10 @@ export default function CookList() {
                   <TableCell sx={{ textAlign: 'center' }}>{order.dishName}</TableCell>
                   <TableCell sx={{ textAlign: 'center' }}>{order.status}</TableCell>
                   <TableCell sx={{ textAlign: 'center' }}>{order.orderDate}</TableCell>
+                  <TableCell sx={{ textAlign: 'center' }}>
+                    <IconButton color="primary" size="small"><EditIcon /></IconButton>
+                    <IconButton color="secondary" size="small"><DeleteIcon /></IconButton>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
